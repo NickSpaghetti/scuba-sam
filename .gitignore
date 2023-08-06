@@ -95,4 +95,4 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
-*.vcxpro.*
+*.vcxproj.*
