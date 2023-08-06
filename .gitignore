@@ -79,3 +79,20 @@ luac.out
 cmake-*
 *.pdx
 Source/*
+
+#Visual Studio
+ExportedObj/
+.consulo/
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.vcxpro.*
