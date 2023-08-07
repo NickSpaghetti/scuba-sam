@@ -11,16 +11,18 @@
 
 #include "pd_api.h"
 
-static int update(void* userdata);
-const char* fontpath = "/System/Fonts/Asheville-Sans-14-Bold.pft";
-LCDFont* font = NULL;
+#include "game.h"
+
+//static int update(void* userdata);
+//const char* fontpath = "/System/Fonts/Asheville-Sans-14-Bold.pft";
+//LCDFont* font = NULL;
 
 #ifdef _WINDLL
 __declspec(dllexport)
 #endif
-int eventHandler(PlaydateAPI* pd, PDSystemEvent event, uint32_t arg)
+int eventHandler(PlaydateAPI* playdate, PDSystemEvent event, uint32_t arg)
 {
-	(void)arg; // arg is currently only used for event = kEventKeyPressed
+/*	(void)arg; // arg is currently only used for event = kEventKeyPressed
 
 	if ( event == kEventInit )
 	{
@@ -32,13 +34,21 @@ int eventHandler(PlaydateAPI* pd, PDSystemEvent event, uint32_t arg)
 
 		// Note: If you set an update callback in the kEventInit handler, the system assumes the game is pure C and doesn't run any Lua code in the game
 		pd->system->setUpdateCallback(update, pd);
-	}
+	}*/
+
+    if ( event == kEventInit )
+    {
+        setPDPtr(playdate);
+		playdate->display->setRefreshRate(20);
+		playdate->system->setUpdateCallback(update, NULL);
+        setupGame();
+    }
 	
 	return 0;
 }
 
 
-#define TEXT_WIDTH 86
+/*#define TEXT_WIDTH 86
 #define TEXT_HEIGHT 16
 
 int x = (400-TEXT_WIDTH)/2;
@@ -66,5 +76,5 @@ static int update(void* userdata)
 	pd->system->drawFPS(0,0);
 
 	return 1;
-}
+}*/
 

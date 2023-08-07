@@ -18,3 +18,9 @@ A scuba diving game for the playdate
 ### Clion
 Read the guide on [sdk.play.date](https://sdk.play.date/inside-playdate-with-c/#_clioncmake) 
 If you set this up correctly when you click Debug the Playdate simulator should automatically pop up.
+
+## On Windows
+### Visual Studio
+1. In the terminal run the following command ```cmake ./CMakeList.txt```
+2. Open up Visual Studios and open up the solution ```suba_sam.sln```
+3. Set the statup project as scuba_sam.vcxproj and when you hit debug the plate date simulator will pop up.
