@@ -30,11 +30,14 @@ set(PLAYDATE_GAME_DEVICE scuba_sam_DEVICE)
 
 project(${PLAYDATE_GAME_NAME} C ASM)
 
+file(GLOB IMAGES
+		"Source/images/*"
+)
+
 if (TOOLCHAIN STREQUAL "armgcc")
-	add_executable(${PLAYDATE_GAME_DEVICE} src/main.c)
+	add_executable(${PLAYDATE_GAME_DEVICE} Source/main.c Source/game.c)
 else()
-	add_library(${PLAYDATE_GAME_NAME} SHARED src/main.c )
+	add_library(${PLAYDATE_GAME_NAME} SHARED Source/main.c Source/game.c ${IMAGES})
 endif()
 
 include(${SDK}/C_API/buildsupport/playdate_game.cmake)
-

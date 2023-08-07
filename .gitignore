@@ -78,7 +78,12 @@ luac.out
 #Ignore Cmake output
 cmake-*
 *.pdx
-Source/*
+CMakeCache.txt
+cmake_install.cmake
+CMakeFiles/*
+x64/*
+*.dir/*
+
 
 #Visual Studio
 ExportedObj/
@@ -97,3 +102,4 @@ ExportedObj/
 *.VC.db
 *.vcxproj
 *.vcxproj.*
+.vs/*
